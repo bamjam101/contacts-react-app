@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/react";
+import ContactList from "./ContactList";
+import Searchbar from "./searchBar";
 
 const Sidebar = () => {
+  const [searchText, setSearchText] = useState("");
+  function onSearch(text) {
+    setSearchText(text);
+  }
   return (
     <aside
       css={css`
@@ -11,39 +17,16 @@ const Sidebar = () => {
         grid-template-rows: auto 1fr;
       `}
     >
-      <header>
-        <form
-          css={css`
-            width: 100%;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          `}
-        >
-          <input
-            type="text"
-            placeholder="Search Contacts From Your Contacts List"
-            css={css`
-              width: 100%;
-              height: auto;
-              padding: 0.5rem 1rem;
-            `}
-          />
-          <button
-            css={css`
-              width: 100%;
-              height: auto;
-              padding: 0.5rem 1rem;
-            `}
-          >
-            Search
-          </button>
-        </form>
-      </header>
-      <section>
-        <div>Contacts display div</div>
+      <Searchbar onSearch={onSearch} />
+      <section
+        css={css`
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          padding: 1rem 0;
+        `}
+      >
+        <ContactList searchText={searchText} />
       </section>
     </aside>
   );
