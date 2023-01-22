@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import ContactList from "./ContactList";
-import Searchbar from "./searchBar";
+import Searchbar from "./Searchbar";
 
 const Sidebar = ({ searchText, onSearch }) => {
   return (

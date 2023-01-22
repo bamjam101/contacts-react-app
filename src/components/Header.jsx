@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "@emotion/react";
-import Searchbar from "./searchBar";
+import Searchbar from "./Searchbar";
 
 const Header = ({ onSearch }) => {
   return (
