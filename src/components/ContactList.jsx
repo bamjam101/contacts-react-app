@@ -15,9 +15,12 @@ const ContactList = ({ searchText }) => {
     <ul
       css={css`
         list-style: none;
-        height: 70vh;
+        height: 80vh;
         padding: 0;
         overflow-y: scroll;
+        @media screen and (max-width: 568px) {
+          height: 50vh;
+        }
       `}
     >
       {contacts?.length
@@ -33,7 +36,7 @@ const ContactList = ({ searchText }) => {
                     width: 100%;
                     display: block;
                     text-decoration: none;
-                    color: royalblue;
+                    color: var(--text-light);
                     padding: 4px 8px;
                     opacity: 0.8;
                     &.active {
@@ -42,6 +45,9 @@ const ContactList = ({ searchText }) => {
                       color: black;
                       font-weight: bold;
                       opacity: 1;
+                    }
+                    @media screen and (max-width: 568px) {
+                      color: var(--text-dark);
                     }
                   `}
                   to={`/contacts/${value}`}
