@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Searchbar = ({ onSearch }) => {
   const searchElementRef = useRef(null);
@@ -40,29 +41,37 @@ const Searchbar = ({ onSearch }) => {
             border: none;
             @media screen and (max-width: 568px) {
               border: 3px solid black;
-              background: rgba(74, 74, 74, 0.2);
+              background: rgba(72, 62, 62, 0.2);
               color: black;
             }
           `}
         />
         <button
           css={css`
-            padding: 0.5rem 1rem;
+            padding: 1rem;
             pointer-events: none;
             opacity: 0;
             outline: none;
             height: 100%;
             border: none;
-            border-radius: 45%;
-            z-index: -999;
+            border-radius: 50%;
+            z-index: -1;
+            transition: border 0.45s, color 0.45s, background 0.45s;
             @media screen and (max-width: 568px) {
               pointer-events: all;
               opacity: 1;
               border: 2px solid black;
+              background: rgba(72, 62, 62, 0.2);
+              z-index: 1;
+              &:hover {
+                border: 2px solid tomato;
+                color: tomato;
+                background: transparent;
+              }
             }
           `}
         >
-          <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>
     </header>
